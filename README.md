@@ -2,7 +2,6 @@
 
 A from scratch implementation of the **Hill cipher** in Python, built as a hands on excuse to work through the linear algebra ideas that make it tick matrix multiplication, determinants, the adjugate formula, and the modular inverse of a matrix.
 
-The cipher itself is broken by modern standards. That's not the point. The point is that every step of encryption, decryption, and even cryptanalysis is a clean, self contained piece of linear algebra over a finite ring  and writing it out by hand is one of the most concrete ways to internalize what those operations actually *do*.
 
 ---
 
@@ -37,7 +36,7 @@ The catch  and the whole reason the project gets interesting  is that `K⁻¹` i
 
 ## The linear algebra concepts being exercised
 
-This project deliberately reaches past `numpy.linalg.inv` and rebuilds the pieces, because the goal is understanding, not shortcuts.
+This project deliberately reaches past `numpy.linalg.inv` and rebuilds the pieces
 
 ### 1. Linear transformations over a finite ring
 Multiplying by `K` is a linear map from `(ℤ/26ℤ)ⁿ` to itself. Every property you know from `ℝⁿ`  linearity, invertibility, the role of the determinant  still applies, but the underlying field is replaced by integers mod 26. Working in this setting makes "the determinant tells you whether the map is invertible" feel like a real, operational statement rather than a textbook line.
@@ -52,7 +51,7 @@ A⁻¹ = (1 / det A) · adj(A)
 Over the reals, you'd just call `np.linalg.inv`. Over `ℤ/26ℤ`, division isn't a thing  so you have to compute the adjugate explicitly and then replace `1 / det A` with the **modular multiplicative inverse** of the determinant.
 
 ### 3. Modular inverses, GCD, and Bézout's identity
-A matrix is invertible mod 26 if and only if `gcd(det(K), 26) = 1`. That's where the bridge between **number theory** and **linear algebra** shows up: the existence of the inverse depends on the determinant being coprime with the modulus. The code computes `det(K)⁻¹ (mod 26)` directly to drive that point home.
+A matrix is invertible mod 26 if and only if `gcd(det(K), 26) = 1`.The code computes `det(K)⁻¹ (mod 26)` directly to drive that point home.
 
 ### 4. Cryptanalysis as solving a linear system
 The most striking demonstration of "linear maps are easy to invert" comes from the attacker's view. Given any two matching plaintext/ciphertext blocks, an attacker stacks them into square matrices `P` and `C` and solves:
@@ -149,4 +148,4 @@ Because the Hill cipher is the simplest non trivial cryptosystem where the *enti
 - how modular arithmetic changes the rules,
 - and why linearity is a liability the moment an adversary gets one matching pair of inputs and outputs.
 
-That last point  that the same property making the cipher elegant is what makes it fall apart  is the whole reason modern cryptography spends so much energy introducing controlled non-linearity (S-boxes, ARX, etc.). The Hill cipher is the cleanest possible illustration of *why*.
+That last point that the same property making the cipher elegant is what makes it fall apart  is the whole reason modern cryptography spends so much energy introducing controlled non-linearity (S-boxes, ARX, etc.). The Hill cipher is the cleanest possible illustration of *why*.
