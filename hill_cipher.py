@@ -1,7 +1,7 @@
 """
 Hill Cipher encryption and decryption using a 2x2 key matrix over mod 26.
 
-Mirrors the logic in hillCipherForward.ipynb but organized into small,
+Mirrors the logic in hillCipherSystemStepByStep.ipynb but organized into small,
 reusable functions.
 """
 
