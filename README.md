@@ -1,4 +1,4 @@
-# Hill Cipher  A Linear Algebra Exercise
+# Hill Cipher  A Linear Algebra Application
 
 A from scratch implementation of the **Hill cipher** in Python, built as a hands on excuse to work through the linear algebra ideas that make it tick matrix multiplication, determinants, the adjugate formula, and the modular inverse of a matrix.
 
