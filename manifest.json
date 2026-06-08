@@ -1,0 +1,15 @@
+{
+  "title": "Hill Cipher Crypto",
+  "tagline": "Matrix Cryptography from scratch",
+  "shortSummary": "This project implements the Hill cipher in Python from scratch to explore core linear algebra concepts like matrix multiplication, determinants, and modular inverses. By manually building encryption, decryption, and a known-plaintext attack, it practically demonstrates both the elegance of linear maps in cryptography and their fatal vulnerabilities to cryptanalysis.",
+  "github": {
+    "repoUrl": "https://github.com/AvikYadav/HillCipherCrypto_linearAlgebra/",
+    "coverImagePath": "images/cover.png",
+    "showcaseImagePath": "images/main.png"
+  },
+
+  "deployment": {
+    "isLive": false,
+    "liveUrl": ""
+  }
+}
